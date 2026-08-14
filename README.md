@@ -2,27 +2,30 @@
 
 Giao diện React cho hệ thống Mini Assessment.
 
-## Khởi chạy nhanh
+## Dành cho lập trình viên (môi trường phát triển)
 
-1. Cài đặt thư viện:
+1. Chạy `npm install`.
+2. Sao chép `.env.example` thành `.env.local`.
+3. Chạy `npm run dev`.
+
+`npm run dev` chỉ dùng để lập trình và kiểm tra trên máy cá nhân.
+
+## Dành cho triển khai thật
+
+1. Sao chép `.env.production.example` thành `.env.production`.
+2. Trong `.env.production`, thay `VITE_API_BASE_URL` bằng URL API WordPress thật của khách hàng, ví dụ `https://api.example.com/wp-json`.
+3. Chạy:
 
    ```bash
-   npm install
+   npm ci
+   npm run build
    ```
 
-2. Sao chép tệp cấu hình mẫu `.env.example` và đổi tên bản sao thành `.env.local`.
+4. Upload **toàn bộ nội dung bên trong** thư mục `dist` lên hosting/CDN của website.
 
-3. Mở `.env.local` và chỉ sửa giá trị `VITE_API_BASE_URL` thành đường dẫn WordPress/API của bạn. Nếu dùng Docker đi kèm dự án, giữ nguyên giá trị mẫu.
+Sau bước này người dùng chỉ truy cập website đã triển khai; không cần, và không nên, chạy `npm run dev` trên máy chủ thật.
 
-4. Chạy ứng dụng:
+## Lưu ý
 
-   ```bash
-   npm run dev
-   ```
-
-Mở địa chỉ mà Vite hiển thị trên terminal, thường là `http://localhost:5173`.
-
-## Ghi chú
-
-- Không cần tự tạo tệp cấu hình; luôn bắt đầu bằng `.env.example`.
-- Không đưa `.env.local` lên GitHub vì đây là cấu hình của từng môi trường.
+- `.env.local` và `.env.production` là cấu hình theo từng môi trường, không đưa lên GitHub.
+- Tên miền website React cần được cho phép trong cấu hình CORS của WordPress trước khi đưa vào sử dụng thật.
