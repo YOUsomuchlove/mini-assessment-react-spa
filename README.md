@@ -1,34 +1,28 @@
 # Mini Assessment SPA
 
-React + Vite client for the Mini Assessment Headless WordPress plugin.
+Giao diện React cho hệ thống Mini Assessment.
 
-## Features
+## Khởi chạy nhanh
 
-- Vietnamese and English routes: `/vi` and `/en`.
-- Public Assessment browsing with search and pagination.
-- Question and Answer display, role-aware create actions and notifications.
-- JWT access-token authentication with silent, rotating refresh-token sessions.
+1. Cài đặt thư viện:
 
-## Run locally
+   ```bash
+   npm install
+   ```
 
-```bash
-npm install
-npm run dev
-```
+2. Sao chép tệp cấu hình mẫu `.env.example` và đổi tên bản sao thành `.env.local`.
 
-The app expects WordPress at `http://localhost:8081/wp-json`. Create `.env.local` to override it:
+3. Mở `.env.local` và chỉ sửa giá trị `VITE_API_BASE_URL` thành đường dẫn WordPress/API của bạn. Nếu dùng Docker đi kèm dự án, giữ nguyên giá trị mẫu.
 
-```text
-VITE_API_BASE_URL=https://your-wordpress.example/wp-json
-```
+4. Chạy ứng dụng:
 
-## Security
+   ```bash
+   npm run dev
+   ```
 
-The browser stores only the short-lived access token in session storage. Refresh tokens are issued by WordPress as HttpOnly cookies and are never accessible to JavaScript. Do not commit `.env.local` or WordPress secrets.
+Mở địa chỉ mà Vite hiển thị trên terminal, thường là `http://localhost:5173`.
 
-## Verify
+## Ghi chú
 
-```bash
-npm run lint
-npm run build
-```
+- Không cần tự tạo tệp cấu hình; luôn bắt đầu bằng `.env.example`.
+- Không đưa `.env.local` lên GitHub vì đây là cấu hình của từng môi trường.
