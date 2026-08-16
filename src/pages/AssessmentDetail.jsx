@@ -7,7 +7,15 @@ import { useI18n } from '../i18n';
 
 const getUser = () => { try { return JSON.parse(sessionStorage.getItem('assessment_user')) || null; } catch { return null; } };
 const authorInitial = (name) => name?.trim().charAt(0).toUpperCase() || 'H';
-const formatAnswerTime = (value) => value ? new Intl.DateTimeFormat('vi-VN', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value.replace(' ', 'T'))) : '';
+const parseWpUtcDate = (value) => {
+  if (!value) return null;
+  const normalized = value.replace(' ', 'T');
+  return new Date(/[zZ]$|[+-]\d{2}:\d{2}$/.test(normalized) ? normalized : `${normalized}Z`);
+};
+const formatAnswerTime = (value) => {
+  const date = parseWpUtcDate(value);
+  return date && !Number.isNaN(date.getTime()) ? new Intl.DateTimeFormat('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', dateStyle: 'medium', timeStyle: 'short' }).format(date) : '';
+};
 
 export default function AssessmentDetail() {
   const { id } = useParams();
