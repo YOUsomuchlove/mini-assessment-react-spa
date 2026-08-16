@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { translate } from '../i18n';
+import { translate } from '../i18n-utils';
 const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8081/wp-json';
 const apiClient = axios.create({ baseURL, withCredentials: true });
 const refreshClient = axios.create({ baseURL, withCredentials: true });

@@ -3,7 +3,7 @@ import { Alert, Avatar, Button, Card, Collapse, Empty, Form, Input, Modal, Resul
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import apiClient, { apiErrorMessage } from '../api/apiClient';
-import { useI18n } from '../i18n';
+import { useI18n } from '../useI18n';
 
 const getUser = () => { try { return JSON.parse(sessionStorage.getItem('assessment_user')) || null; } catch { return null; } };
 const authorInitial = (name) => name?.trim().charAt(0).toUpperCase() || 'H';

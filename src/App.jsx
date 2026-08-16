@@ -3,7 +3,7 @@ import { Avatar, Button, Dropdown, Layout, Tag, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import apiClient, { clearSession, getAccessTokenExpiry, refreshAccessToken } from './api/apiClient';
-import { useI18n } from './i18n';
+import { useI18n } from './useI18n';
 import Login from './pages/Login';
 import AssessmentList from './pages/AssessmentList';
 import AssessmentDetail from './pages/AssessmentDetail';
