@@ -153,7 +153,7 @@ src/
   locales/      # Hai tệp ngôn ngữ en.js, vi.js
   pages/        # Danh sách, chi tiết Assessment và đăng nhập
   App.jsx       # Route /vi, /en và header
-  index.css     # Giao diện dùng chung
+  index.scss    # Giao diện dùng chung
 public/         # Favicon và icon tĩnh
 dist/           # Sinh ra sau npm run build; không commit
 ```
