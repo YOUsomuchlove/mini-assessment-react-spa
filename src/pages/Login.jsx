@@ -3,7 +3,7 @@ import { Alert, Button, Card, Form, Input, Typography, message } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiClient, { apiErrorMessage } from '../api/apiClient';
-import { useI18n } from '../i18n';
+import { useI18n } from '../useI18n';
 
 export default function Login() {
   const [error, setError] = useState('');

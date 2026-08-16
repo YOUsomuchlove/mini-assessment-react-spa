@@ -5,7 +5,7 @@ import { ConfigProvider } from 'antd';
 import viVN from 'antd/locale/vi_VN';
 import 'antd/dist/reset.css';
 import App from './App';
-import './index.css';
+import './index.scss';
 import { I18nProvider } from './i18n';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
